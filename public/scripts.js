@@ -30,9 +30,8 @@ function main(){
             fetch('/app/rps/play?shot=' + getSelectedShootValue(), {
                 method: 'GET',
             })
-            .then(res => res.json()) // Parse the response as JSON and return a new Promise
+            .then(res => res.json()) 
             .then(data => {
-                console.log(data);
                 const result = data["result"];
                 const resultDiv = document.getElementById("result");
                 resultDiv.innerText = result;
@@ -41,10 +40,9 @@ function main(){
             .catch(error => {
                 console.error('Error:', error);
             });
-            
-            
+              
         } else if (rplsRadio.checked) {
-            console.log("rpls was selected")
+          console.log("rpsls was selected");
           window.location.href = '/app/rpsls';
         } else {
           alert('Please select a game mode.');
@@ -52,7 +50,6 @@ function main(){
       });
     
       document.getElementById("rpsRadio").addEventListener('click', (event) => {
-        console.log("onclick works")
         const views = ["rockView","scissorView","paperView"];
         views.forEach(view => {
             document.getElementById(view).style.display ="inline";
@@ -63,8 +60,7 @@ function main(){
         })
       });
     
-      document.getElementById("rplsRadio").addEventListener('click', (event) => {
-        console.log("onclick works")
+      document.getElementById("rpslsRadio").addEventListener('click', (event) => {
         const views = ["rockView","scissorView","paperView","lizardView","spockView"];
         views.forEach(view => {
             document.getElementById(view).style.display ="inline";
@@ -74,6 +70,4 @@ function main(){
       document.getElementById('refreshButton').addEventListener('click', () => {
         window.location.reload();
       });
-    
-    
 }
